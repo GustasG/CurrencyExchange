@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+.yarn/
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+
+# JetBrains IDE
+.idea/
+
+# Binary Directories
+bin/
+obj/
+build/
+
+# Development files
+.env

@@ -1,0 +1,16 @@
+
+services:
+  server:
+    build: ./CurrencyExchange
+    ports:
+      - 8000:80
+
+  web:
+    build:
+      context: ./currency-exchange-client
+      args:
+        - REACT_APP_SERVER_URL=http://localhost:8000
+    ports:
+      - 3000:3000
+    depends_on:
+      - server

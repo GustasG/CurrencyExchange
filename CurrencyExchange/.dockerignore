@@ -1,0 +1,9 @@
+# IDE directories
+.vs/
+.idea/
+.vscode/
+
+# Binary directories
+bin/
+obj/
+build/
