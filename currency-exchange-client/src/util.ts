@@ -1,4 +1,3 @@
-
 export function dateToIsoDateOnlyString(date: Date): string {
   return date
     .toISOString()

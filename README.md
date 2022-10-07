@@ -10,7 +10,9 @@ Using docker:
 docker-compose up
 ```
 
-Web client should be running on localhost:3000 for preview
+Web client should be running on localhost:3000 for preview.
+
+Note: Sometimes docker-compose will fail to set correct port for backend. If this happents try repeating command.
 
 Using server/web client commands:
 
