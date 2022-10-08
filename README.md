@@ -3,6 +3,7 @@
 [![dotnet](https://github.com/GustasG/CurrencyExchange/actions/workflows/dotnet.yml/badge.svg)](https://github.com/GustasG/CurrencyExchange/actions/workflows/dotnet.yml)
 [![codecov](https://codecov.io/gh/GustasG/CurrencyExchange/branch/master/graph/badge.svg?token=Lkh9nX6wLJ)](https://codecov.io/gh/GustasG/CurrencyExchange)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/84f71dfd65be484b9b2ebcebe03fbabf)](https://www.codacy.com/gh/GustasG/CurrencyExchange/dashboard?utm_source=github.com&utm_medium=referral&utm_content=GustasG/CurrencyExchange&utm_campaign=Badge_Coverage)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GustasG/CurrencyExchange/blob/master/LICENSE)
 
 Project for calculating exchange rates and historical exchange rates
 
