@@ -20,3 +20,8 @@ Using server/web client commands:
 2. Launch web client from currency-exchange-client directory using ```yarn start``` (after installing node modules using ```yarn install```)
 3. Ensure that server is running on localhost:5000 or pass environment variable REACT_APP_SERVER_URL with running server URL
 4. Web client should be awailable on localhost:3000 for preview
+
+## Project infrastructure
+
+1. currency-exchange-client - React front-end project
+2. CurrencyExchange - dotnet back-end project
