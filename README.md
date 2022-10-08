@@ -1,5 +1,7 @@
 # Currency exchange
 
+[![dotnet](https://github.com/GustasG/CurrencyExchange/actions/workflows/dotnet.yml/badge.svg)](https://github.com/GustasG/CurrencyExchange/actions/workflows/dotnet.yml)
+
 Project for calculating exchange rates and historical exchange rates
 
 ## Instructions to launch
