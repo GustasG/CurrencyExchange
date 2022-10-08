@@ -23,7 +23,7 @@ jobs:
         dotnet-version: 6.0.x
 
     - name: Test
-      run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput="../coverage.xml" --verbosity normal
+      run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput="./coverage.xml" --verbosity normal
 
     - name: Upload coverage to codecov
       uses: codecov/codecov-action@v3
