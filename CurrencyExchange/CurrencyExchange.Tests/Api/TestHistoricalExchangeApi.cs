@@ -39,6 +39,24 @@ public class TestHistoricalExchangeApi : IClassFixture<TestEnvironmentExchangeAp
     }
 
     [Theory]
+    [InlineData("EUR", "EUR")]
+    [InlineData("USD", "USD")]
+    public async Task Test_Requesting_Exchange_Rate_At_Last_Available_Date_Between_Same_Currencies_Should_Return_1(string from, string to)
+    {
+        var dates = await GetAvailableDates();
+        var response = await _httpClient.PostAsJsonAsync("/HistoricalExchange/Rate", new
+        {
+            Date = dates[^1],
+            From = from,
+            To = to
+        });
+        var rate = await response.Content.ReadFromJsonAsync<decimal>();
+
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal(1.0m, rate);
+    }
+
+    [Theory]
     [InlineData("EUR", "USD")]
     [InlineData("USD", "EUR")]
     [InlineData("USD", "GBP")]
