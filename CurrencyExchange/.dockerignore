@@ -2,6 +2,7 @@
 .vs/
 .idea/
 .vscode/
+*.user
 
 # Binary directories
 bin/
