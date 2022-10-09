@@ -7,7 +7,7 @@ namespace CurrencyExchange.Infrastructure.ECB;
 
 public class EcbExchangeRateConverter : IExchangeRateConverter
 {
-    private const string BaseCurrency = "EUR";
+    private static readonly string BaseCurrency = "EUR";
     
     private IDictionary<string, decimal> _rates;
 

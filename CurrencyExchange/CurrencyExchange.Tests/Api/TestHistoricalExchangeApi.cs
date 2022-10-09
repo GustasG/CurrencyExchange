@@ -22,7 +22,7 @@ public class TestHistoricalExchangeApi : IClassFixture<TestEnvironmentExchangeAp
     }
 
     [Fact]
-    public async Task Test_Requesting_Available_Currencies_At_First_Available_Date_Should_Return_Valid_List_Of_Currencies()
+    public async Task Test_Requesting_Available_Currencies_At_Last_Available_Date_Should_Return_Valid_List_Of_Currencies()
     {
         var dates = await GetAvailableDates();
 
@@ -36,6 +36,46 @@ public class TestHistoricalExchangeApi : IClassFixture<TestEnvironmentExchangeAp
         Assert.NotNull(currencies);
         Assert.Contains("EUR", currencies);
         Assert.Contains("USD", currencies);
+    }
+
+    [Theory]
+    [InlineData("EUR", "USD")]
+    [InlineData("USD", "EUR")]
+    [InlineData("USD", "GBP")]
+    [InlineData("GBP", "USD")]
+    public async Task
+        Test_Requesting_Exchange_Rate_At_Last_Available_Date_Between_Valid_Currencies_Should_Return_Non_Negative_Number(
+            string from, string to)
+    {
+        var dates = await GetAvailableDates();
+        var response = await _httpClient.PostAsJsonAsync("/HistoricalExchange/Rate", new
+        {
+            Date = dates[^1],
+            From = from,
+            To = to
+        });
+        var rate = await response.Content.ReadFromJsonAsync<decimal>();
+        
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.True(rate > 0.0m);
+    }
+
+    [Theory]
+    [InlineData("EUR", "dba")]
+    [InlineData("dba", "EUR")]
+    [InlineData("dba", "gda")]
+    public async Task Test_Requesting_Exchange_Rte_At_Last_Available_Date_With_Invalid_Currency_Should_Return_Error(
+        string from, string to)
+    {
+        var dates = await GetAvailableDates();
+        var response = await _httpClient.PostAsJsonAsync("/HistoricalExchange/Rate", new
+        {
+            Date = dates[^1],
+            From = from,
+            To = to
+        });
+        
+        Assert.False(response.IsSuccessStatusCode);
     }
 
     private async Task<IList<string>> GetAvailableDates()

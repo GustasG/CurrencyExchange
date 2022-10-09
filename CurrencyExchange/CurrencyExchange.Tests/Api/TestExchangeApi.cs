@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
 namespace CurrencyExchange.Tests.Api;
@@ -64,7 +65,7 @@ public class TestExchangeApi : IClassFixture<TestEnvironmentExchangeApplicationF
     [InlineData("EUR", "dba")]
     [InlineData("dba", "EUR")]
     [InlineData("dba", "gda")]
-    public async Task Test_Requesting_Exchange_With_Currency_That_Is_Invalid_Should_Return_Error(string from, string to)
+    public async Task Test_Requesting_Exchange_With_Invalid_Currency_Should_Return_Error(string from, string to)
     {
         var response = await _httpClient.PostAsJsonAsync("/Exchange/Rate", new
         {

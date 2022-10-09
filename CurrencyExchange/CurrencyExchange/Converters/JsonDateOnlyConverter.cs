@@ -9,7 +9,7 @@ namespace CurrencyExchange.Converters;
 // Issue: https://github.com/dotnet/runtime/issues/53539
 public class JsonDateOnlyConverter : JsonConverter<DateOnly>
 {
-    private const string Format = "yyyy-MM-dd";
+    private static readonly string Format = "yyyy-MM-dd";
 
     public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         => DateOnly.ParseExact(reader.GetString()!, Format, CultureInfo.InvariantCulture);

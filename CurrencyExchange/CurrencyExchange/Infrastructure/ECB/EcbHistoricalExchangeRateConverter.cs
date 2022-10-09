@@ -8,7 +8,7 @@ namespace CurrencyExchange.Infrastructure.ECB;
 
 public class EcbHistoricalExchangeRateConverter : IHistoricalExchangeRateConverter
 {
-    private const string BaseCurrency = "EUR";
+    private static readonly string BaseCurrency = "EUR";
     
     private IDictionary<DateOnly, IDictionary<string, decimal>> _rates;
 
